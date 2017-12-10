@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="row justify-content-sm-center">
-      <div class="col-sm-6">
+      <div class="col-sm-5">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for current weather..." name="cityName" [(ngModel)]=cityName>
           <span class="input-group-btn">
@@ -10,8 +10,8 @@
         </div><!-- /input-group -->
       </div><!-- /.col-sm-6 -->
     </div>
-    <div class="row justify-content-sm-center">
-      <div class="col-sm-6">
+    <div *ngIf="cityNameActual" class="row justify-content-sm-center">
+      <div class="col-sm-5">
         <div class="name-temp-wrap">
           <div>
             <h1>{{cityNameActual}}</h1>
@@ -26,13 +26,13 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-sm-center">
-      <div class="col-sm-6">
+    <div *ngIf="localStorageArray.length" class="row justify-content-sm-center">
+      <div class="col-sm-5">
       <!-- favs list -->
         <h3>Favorites</h3>
         <ul class="list-group">
-          <li class="list-group-item list-group-item-action" *ngFor="let favCity of localStorageArray" >
-            <a class="" (click)="getWeather( favCity )">{{ favCity }}</a>
+          <li (click)="getWeather( favCity )" class="list-group-item list-group-item-action" *ngFor="let favCity of localStorageArray" >
+            <a class="" >{{ favCity }}</a>
           </li>
         </ul>
       </div>

@@ -30,3 +30,6 @@
     font-weight: normal;
 }
 
+.list-group-item:hover  {
+    cursor: pointer;
+}
