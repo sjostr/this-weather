@@ -52,6 +52,9 @@ export class AppComponent implements AfterViewInit{
 
   getWeather(searchForCity){
     //console.log("getWeather called with this value: " + searchForCity);
+    if (!searchForCity) {
+      return;
+    }
     this.http.get('http://api.openweathermap.org/data/2.5/weather?APPID=' + environment.appID + '&units=imperial&q=' + searchForCity )
     .subscribe (
       (res: Response) => {
